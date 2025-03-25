@@ -5,7 +5,7 @@ const gameRouter = require("./routes/gameRouter");
 const reviewRouter = require("./routes/reviewRouter");
 const publisherRouter = require("./routes/publisherRouter")
 const genreRouter = require("./routes/genreRouter")
-
+const db = require("./db/scriptdb");
 
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
@@ -18,7 +18,10 @@ app.use("/", genreRouter);
 
 
 
+
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`App is listening on port ${PORT}`)
+    db.main
 })
